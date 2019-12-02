@@ -68,9 +68,10 @@ export default class StepIndicator extends PureComponent {
     );
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.currentPosition !== this.props.currentPosition) {
-      this.onCurrentPositionChanged(nextProps.currentPosition);
+  componentDidUpdate(prevProps) {
+    const { currentPosition } = this.props
+    if (currentPosition !== prevProps.currentPosition) {
+      this.onCurrentPositionChanged(currentPosition)
     }
   }
 
